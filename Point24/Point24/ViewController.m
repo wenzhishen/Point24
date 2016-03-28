@@ -30,10 +30,11 @@ void chk(float k);
 void search24(int d);
 float calc(float n1, float n2, char o);
 void make(int i, float p, float q, char o, int d);
+
 void chk(float k)
 {
     if( (tp != 3) || ( fabs(k-24.0) > 0.000001 ))
-        // 没有用完3个运算符或者结果不为24就退出.
+        // 没用完3个运算符或者结果不为24就退出.
         return;
     NSMutableString *string = [NSMutableString string];
     for(x=0; x<5; x+=2) {
@@ -44,7 +45,6 @@ void chk(float k)
     }
     NSLog(@"%@", string);
     result = string;
-    //    system("pause");
     return;
 }
 
@@ -66,7 +66,7 @@ void make(int i, float p, float q, char o, int d)
     op[tp++] = o;
     chk(n[i]);
     search24(d+1);
-    tp--;    //因为是全是全局变量,所以在做试验性的循环递归问题时,如果失败,要在递归函数后面重新恢复回原来的值
+    tp--; // 因为是全是全局变量,所以在做试验性的循环递归问题时,如果失败,要在递归函数后面重新恢复回原来的值
 }
 
 
@@ -94,12 +94,7 @@ void search24(int d)
             }
 }
 
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
+#pragma mark - Input
 - (IBAction)confirm:(UIButton *)sender {
     if (self.numbers < 5 && self.textField.text.length) {
         int num = self.textField.text.intValue;
